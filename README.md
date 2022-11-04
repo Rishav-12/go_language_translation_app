@@ -1,4 +1,4 @@
-# go_language_translation_app
+# Translation App in Golang
 Topcoder Development Practice Challenge
 
 ## Installation
