@@ -30,6 +30,14 @@ func translate_google(sourceLang string, targetLang string, queryText string) {
 	fmt.Println(result["sentences"])
 }
 
+func cmd_line_arguments() {
+	sourceLang := os.Args[1]
+	targetLang := os.Args[2]
+	query := os.Args[3]
+
+	translate_google(sourceLang, targetLang, query)
+}
+
 func run_with_input() {
 	var sourceLang, targetLang, query string
 
@@ -65,7 +73,8 @@ func test() {
 }
 
 func main() {
-	run_with_input()
+	//run_with_input()
+	cmd_line_arguments()
 
 	// Uncomment the line below and comment out the above line to test the code with the source and target text files
 	//test()
