@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -38,44 +37,6 @@ func cmd_line_arguments() {
 	translate_google(sourceLang, targetLang, query)
 }
 
-func run_with_input() {
-	var sourceLang, targetLang, query string
-
-	fmt.Print("Enter source language ")
-	fmt.Scanln(&sourceLang)
-	fmt.Print("Enter target language ")
-	fmt.Scanln(&targetLang)
-	fmt.Print("Enter query string ")
-	fmt.Scanln(&query)
-
-	translate_google(sourceLang, targetLang, query)
-}
-
-func test() {
-	f, err := os.Open("source.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	defer f.Close()
-
-	scanner := bufio.NewScanner(f)
-
-	for scanner.Scan() {
-		query := scanner.Text()
-		fmt.Printf("translating: %s\n", query)
-		translate_google("en", "fr", query)
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-}
-
 func main() {
-	//run_with_input()
 	cmd_line_arguments()
-
-	// Uncomment the line below and comment out the above line to test the code with the source and target text files
-	//test()
 }
